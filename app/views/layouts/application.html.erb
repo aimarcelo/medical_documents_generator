@@ -3,12 +3,14 @@
   <head>
     <title>Medley</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%= stylesheet_link_tag
-    "application", "data-turbo-track": "reload" %> <%= javascript_include_tag
-    "application", "data-turbo-track": "reload", type: "module" %>
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%=
+    stylesheet_link_tag("application", "data-turbo-track": "reload") %> <%=
+    javascript_include_tag("application", "data-turbo-track": "reload", type:
+    "module") %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav><%= render partial: "layouts/navigation_bar" %></nav>
+    <div class="max-w-[75rem] mx-auto px-7"><%= yield %></div>
   </body>
 </html>
