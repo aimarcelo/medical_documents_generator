@@ -1,11 +1,6 @@
-<nav><%= render partial: "layouts/navigation_bar" %></nav>
-<body class="bg-gray-50">
+<body class="bg-slate-50">
   <div>
-    <div
-      class="relative flex flex-row justify-center overflow-hidden py-6 sm:py-12"
-    >
-      <%= render partial: "cards/create_prescription" %>
-      <%= render partial: "cards/create_certificate" %>
-      <%= render partial: "cards/create_patient" %>
+    <%= render("shared/widgets/medical_documents") %> <%=
+    render("shared/widgets/patients_in_index") %>
   </div>
 </body>
