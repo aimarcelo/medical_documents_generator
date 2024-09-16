@@ -1,0 +1,140 @@
+<body class="bg-sky-100">
+  <!-- Page Header -->
+  <div
+    class="flex justify-self-center bg-white w-full h-100 mt-12 py-4 px-8 rounded-lg border-t-4 border-sky-600 shadow-sm"
+  >
+    <div>
+      <h1 class="font-semibold text-2xl font-raleway">New Patient</h1>
+    </div>
+  </div>
+
+  <!-- New Patient Form -->
+
+  <div
+    class="flex justify-self-center bg-white w-full h-100 my-4 py-4 px-8 rounded-lg shadow-sm font-raleway border-1 border-gray-100"
+  >
+    <div class="space-y-12">
+      <div class="pb-12">
+        <h2 class="text-base font-semibold leading-7 text-gray-900">
+          Patient Information
+        </h2>
+        <p class="mt-1 text-sm leading-6 text-gray-600">
+          Enter patient's details.
+        </p>
+        <%= form_with model: Patient.new, method: :post do |f| %>
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-3">
+            <%= f.label(:first_name, "First name", class: "block text-sm
+            font-medium leading-6 text-gray-900") %>
+            <div class="mt-2">
+              <%= f.text_field(:last_name, class: "block w-full rounded-md
+              border-0 py-1.5 text-gray-900 w-72 shadow-sm ring-1 ring-inset
+              ring-gray-300 placeholder:text-gray-400 focus:ring-2
+              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+              placeholder: "First name", required: true) %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <%= f.label(:last_name, "Last name", class: "block text-sm
+            font-medium leading-6 text-gray-900") %>
+            <div class="mt-2">
+              <%= f.text_field(:last_name, class: "block rounded-md border-0
+              py-1.5 text-gray-900 w-72 shadow-sm ring-1 ring-inset
+              ring-gray-300 placeholder:text-gray-400 focus:ring-2
+              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+              placeholder: "Last name", required: true) %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3 block">
+            <div class="flex flex-row">
+              <%= f.label(:middle_name, "Middle name", class: "flex flex-row
+              text-sm font-medium leading-6 text-gray-900") %>
+              <p class="flex flex-row text-sm leading-6 text-gray-600 ml-1">
+                (optional)
+              </p>
+            </div>
+            <div class="mt-2">
+              <%= f.text_field(:middle_name, class: "block w-full rounded-md
+              border-0 py-1.5 text-gray-900 w-72 shadow-sm ring-1 ring-inset
+              ring-gray-300 placeholder:text-gray-400 focus:ring-2
+              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+              placeholder: "Middle name") %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-4">
+            <%= f.label(:birthdate, "Birthdate", class: "block text-sm
+            font-medium leading-6 text-gray-900") %>
+            <div class="mt-2">
+              <%= f.date_field(:birthdate, max: Date.today, class: "block w-full
+              rounded-md border-0 py-1.5 text-gray-900 w-72 shadow-sm ring-1
+              ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2
+              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+              placeholder: "Birthdate", required: true) %>
+            </div>
+          </div>
+
+          <div class="sm:col-span-3">
+            <%= f.label(:contact_number, "Contact number", class: "block text-sm
+            font-medium leading-6 text-gray-900") %>
+            <div class="mt-2">
+              <%= f.text_field(:contact_number, class: "block rounded-md
+              border-0 py-1.5 text-gray-900 w-72 shadow-sm ring-1 ring-inset
+              ring-gray-300 placeholder:text-gray-400 focus:ring-2
+              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+              placeholder: "Contact number", required: true) %>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <%= f.label(:email, "Email address", class: "block text-sm
+            font-medium leading-6 text-gray-900") %>
+            <div class="mt-2">
+              <%= f.text_field(:email, class: "block rounded-md border-0 py-1.5
+              text-gray-900 w-80 shadow-sm ring-1 ring-inset ring-gray-300
+              placeholder:text-gray-400 focus:ring-2 focus:ring-inset
+              focus:ring-indigo-600 sm:text-sm sm:leading-6", placeholder:
+              "Email address", required: true) %>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <%= f.label(:city, "City", class: "block text-sm font-medium
+            leading-6 text-gray-900") %>
+            <div class="mt-2">
+              <%= f.text_field(:city, class: "block w-full rounded-md border-0
+              py-1.5 text-gray-900 w-72 shadow-sm ring-1 ring-inset
+              ring-gray-300 placeholder:text-gray-400 focus:ring-2
+              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+              placeholder: "City", required: true) %>
+            </div>
+          </div>
+          <div class="sm:col-span-3">
+            <%= f.label(:province, "Province", class: "block text-sm font-medium
+            leading-6 text-gray-900") %>
+            <div class="mt-2">
+              <%= f.text_field(:province, class: "block w-full rounded-md
+              border-0 py-1.5 text-gray-900 w-72 shadow-sm ring-1 ring-inset
+              ring-gray-300 placeholder:text-gray-400 focus:ring-2
+              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+              placeholder: "Province", required: true) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-row place-content-end">
+    <button
+      class="flex bg-white px-6 py-2 text-black font-raleway font-medium text-lg rounded-md mr-4 shadow-sm hover:shadow-md"
+    >
+      Cancel
+    </button>
+    <div class="m-0">
+      <%= f.submit "Save", class: "flex bg-emerald-600 px-6 py-2 rounded-md
+      shadow-sm text-white font-raleway font-medium text-lg hover:bg-emerald-500
+      hover:shadow-md hover:cursor-pointer" %>
+    </div>
+  </div>
+  <% end %>
+</body>
