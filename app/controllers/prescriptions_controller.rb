@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class PrescriptionsController < ApplicationController
   def create
     @prescription = Prescription.create(prescription_params)
 
     respond_to do |format|
       format.html do
-        redirect_to prescription_url(@prescription), notice: "Prescription was successfully created."
+        redirect_to prescription_url(@prescription), notice: 'Prescription was successfully created.'
       end
       format.json do
         render json: @prescription, status: :ok
