@@ -7,6 +7,7 @@ const entryPoints = [
 ]
 const watchDirectories = [
   "./app/javascript/**/*.js",
+  "./app/javascript/**/*.jsx",
   "./app/views/**/*.html.erb",
   "./app/assets/stylesheets/*.css",
   "./app/assets/stylesheets/*.scss"
