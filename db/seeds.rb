@@ -1,5 +1,5 @@
-addresses = [
-  "Pasig city", "Cainta, Rizal", "Marikina city", "Taytay, Rizal"
+city = [
+  "Pasig", "Marikina", "Quezon", "San Juan", "Makati"
 ]
 
 middle_name = Faker::Name.last_name
@@ -11,9 +11,10 @@ date_range = (1.year.ago.to_date..1.hour.ago.to_date).to_a
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     middle_name: middle_name,
-    email: Faker::Internet.email(domain: "example.com"),
+    email: Faker::Internet.email(domain: '@example.com'),
     contact_number: "0123456789",
     birthdate: Faker::Date.birthday(min_age: 18, max_age: 65),
-    address: addresses.sample
+    city: city.sample,
+    province: "Metro Manila"
   )
 end
