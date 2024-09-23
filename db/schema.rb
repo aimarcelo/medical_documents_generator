@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_13_091138) do
 
   create_table "prescriptions", force: :cascade do |t|
     t.text "drug_name"
-    t.text "dosage_and_preparation"
-    t.text "frequency"
+    t.text "preparation"
+    t.text "dose_and_frequency"
     t.text "quantity"
     t.text "notes"
     t.bigint "patient_id"
