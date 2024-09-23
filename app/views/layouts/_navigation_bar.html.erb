@@ -1,9 +1,11 @@
 <!-- component -->
-<header class="header sticky top-0 bg-white shadow-sm px-8 py-02 text-black">
+<header
+  class="header fixed bg-white shadow-sm px-8 py-02 text-black w-full z-50"
+>
   <div class="flex max-w-[75rem] mx-auto px-7 items-center justify-between">
     <!-- logo -->
     <h1
-      class="w-3/12 font-medium text-3xl font-robotoSlab hover:text-emerald-600 duration-200 cursor-pointer active"
+      class="w-3/12 font-medium text-3xl font-robotoSlab hover:text-purple-700 duration-200 cursor-pointer active"
     >
       <%= link_to "medley", root_path %>
     </h1>
@@ -12,17 +14,17 @@
     <nav class="nav font-normal text-lg">
       <ul class="flex items-center font-raleway text-white-200 text-lg">
         <li
-          class="p-4 border-b-2 border-emerald-600 border-opacity-0 hover:border-opacity-100 hover:text-emerald-600 duration-200 cursor-pointer active"
+          class="p-4 border-b-2 border-purple-700 border-opacity-0 hover:border-opacity-100 hover:text-purple-700 duration-200 cursor-pointer active"
         >
           <%= link_to "Home", root_path %>
         </li>
         <li
-          class="p-4 border-b-2 border-emerald-600 border-opacity-0 hover:border-opacity-100 hover:text-emerald-600 duration-200 cursor-pointer active"
+          class="p-4 border-b-2 border-purple-700 border-opacity-0 hover:border-opacity-100 hover:text-purple-700 duration-200 cursor-pointer active"
         >
           <%= link_to "My Prescriptions" %>
         </li>
         <li
-          class="p-4 border-b-2 border-emerald-600 border-opacity-0 hover:border-opacity-100 hover:text-emerald-600 duration-200 cursor-pointer active"
+          class="p-4 border-b-2 border-purple-700 border-opacity-0 hover:border-opacity-100 hover:text-purple-700 duration-200 cursor-pointer active"
         >
           <%= link_to "My Certificates" %>
         </li>
@@ -33,7 +35,7 @@
     <div class="w-3/12 flex justify-end">
       <a href="">
         <svg
-          class="h-8 p-1 hover:text-emerald-600 duration-200"
+          class="h-8 p-1 hover:text-purple-700 duration-200"
           aria-hidden="true"
           focusable="false"
           data-prefix="far"
