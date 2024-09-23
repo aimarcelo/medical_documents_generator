@@ -35,18 +35,19 @@
           <tr class="white border-b hover:bg-gray-50">
             <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
               <%= link_to "#{patient.full_name}", edit_patient_path(patient),
-              class: "hover:underline underline-offset-2 underline-gray-900" %>
+              class: "hover:underline underline-offset-2 underline-gray-900",
+              data: { turbo: false } %>
             </th>
             <td class="px-6 py-4"><%= patient.age %></td>
             <td class="px-6 py-4"><%= patient.city_address %></td>
             <td class="px-6 py-4">
               <%= link_to "Edit", edit_patient_path(patient), class: "text-md
               text-green-700 font-bold hover:underline underline-offset-2
-              underline-green-700"%> <%= link_to("Delete",
-              patient_path(patient), class: "text-md ml-4 text-red-400 font-bold
-              hover:underline underline-offset-2 underline-red-400", method:
-              :delete, data: { turbo_method: :delete, turbo_confirm: "Are you
-              sure?"}) %>
+              underline-green-700", data: { turbo: false } %> <%=
+              link_to("Delete", patient_path(patient), class: "text-md ml-4
+              text-red-400 font-bold hover:underline underline-offset-2
+              underline-red-400", method: :delete, data: { turbo_method:
+              :delete, turbo_confirm: "Are you sure?"}) %>
             </td>
           </tr>
           <% end %>

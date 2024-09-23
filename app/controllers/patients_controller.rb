@@ -30,7 +30,7 @@ class PatientsController < ApplicationController
    
     respond_to do |format|
       format.html do
-        redirect_to patient_url(@patient), notice: "Patient was successfully updated."
+        redirect_to edit_patient_url(@patient), notice: "Patient was successfully updated."
       end
       format.json do
         render json: @patient, status: "see other"

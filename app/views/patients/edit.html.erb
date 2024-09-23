@@ -11,7 +11,7 @@
 
         <!-- Patient Form -->
 
-        <%= form_with model: @patient, method: :patch do |f| %>
+        <%= form_with model: @patient do |f| %>
         <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
             <%= f.label(:first_name, "First name", class: "block text-sm
@@ -122,7 +122,7 @@
     <div class="m-0">
       <%= f.submit "Save", class: "flex bg-emerald-600 px-6 py-2 rounded-md
       shadow-sm text-white font-raleway font-medium text-lg hover:bg-emerald-500
-      hover:shadow-md hover:cursor-pointer" %>
+      hover:shadow-md hover:cursor-pointer", data: { turbo: false } %>
     </div>
   </div>
   <% end %>
