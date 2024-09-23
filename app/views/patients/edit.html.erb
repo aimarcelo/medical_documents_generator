@@ -1,22 +1,17 @@
 <body class="bg-sky-100">
   <div
-    class="flex justify-self-center bg-white w-full h-100 my-4 py-4 px-8 rounded-lg shadow-lg font-raleway border-t-4 border-sky-600 border-1 border-gray-100"
+    class="flex justify-self-center bg-white w-full h-100 my-4 py-4 px-8 rounded-lg shadow-sm font-raleway border-t-4 border-sky-600 border-1 border-gray-100"
   >
-    <!-- Page Header -->
+    <!-- Patient Details Header -->
     <div class="space-y-12">
       <div class="pb-4">
-        <h1 class="font-semibold text-2xl font-raleway pb-4">New Patient</h1>
-        <div>
-          <h2 class="text-base font-semibold leading-7 text-gray-900">
-            Patient Information
-          </h2>
-          <p class="text-sm leading-6 text-gray-600">
-            Enter patient's details.
-          </p>
-        </div>
-        <!-- New Patient Form -->
+        <h1 class="font-semibold text-2xl font-raleway pb-4">
+          <%= @patient.full_name %>
+        </h1>
 
-        <%= form_with model: Patient.new, method: :post do |f| %>
+        <!-- Patient Form -->
+
+        <%= form_with model: @patient, method: :patch do |f| %>
         <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
             <%= f.label(:first_name, "First name", class: "block text-sm
@@ -119,6 +114,7 @@
       </div>
     </div>
   </div>
+  <!-- Save button -->
   <div class="flex flex-row place-content-end">
     <%= link_to "Cancel", patients_path, class: "flex bg-white px-6 py-2
     text-black font-raleway font-medium text-lg rounded-md mr-4 shadow-sm
