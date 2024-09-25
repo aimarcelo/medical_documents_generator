@@ -8,7 +8,7 @@ import TomSelect from 'tom-select';
 
 // Initialize Tom-select on the dropdown
 document.addEventListener("turbo:load", function() {
-  var patientDropdown = document.querySelector("#patient-dropdown");
+  var patientDropdown = document.querySelector("patient-dropdown");
   if (patientDropdown) {
     new TomSelect(patientDropdown, {
     create: false,

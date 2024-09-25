@@ -5,93 +5,109 @@
     >
       <!-- Page Header -->
       <div class="pb-4 w-full">
-        <div>
-          <h1 class="font-semibold text-2xl font-raleway">New Prescription</h1>
+        <div class="flex place-content-between">
+          <div>
+            <h1 class="font-semibold text-2xl font-raleway">
+              New Prescription
+            </h1>
+          </div>
         </div>
 
         <!-- New Prescription Form -->
         <%= form_with model: Prescription.new, method: :post do |f| %>
-        <div class="flex flex-col mt-6 w-full">
+        <div class="flex flex-col flex-wrap mt-6 w-full"></div>
           <!-- Patient's name -->
-          <div class="pb-6">
-            <%= f.label(:patient_id, "Patient's name", class: "block text-sm
-            font-medium leading-6 text-gray-900") %>
-            <div class="mt-1">
-              <%= f.collection_select(:patient_id, Patient.order(:last_name,
-              :first_name), :id, :full_name, prompt: true, id:
-              "patient-dropdown" , class: "tom-select block w-3/4 rounded-md
-              border-0 py-1.5 text-gray-900 w-80 shadow-sm ring-1 ring-inset
-              ring-gray-300 placeholder:text-gray-400 focus:ring-2
-              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
-              placeholder: "Patient's name", required: true) %>
+          <div class="block sm:flex sm:place-content-between mb-2 sm:mb-4">
+            <div>
+              <%= f.label(:patient_id, "Patient's name", class: "block text-sm
+              font-medium leading-6 text-gray-900") %>
+              <div class="mt-1">
+                <%= f.collection_select :patient_id, @patients, :id, :full_name,
+                { prompt: true} , id: "patient-dropdown", class: "tom-select
+                block w-3/4 border-0 mb-4 rounded-md text-xs text-gray-900 w-full
+                shadow-sm ring-1 ring-inset ring-gray-300
+                placeholder:text-gray-400 focus:ring-2 focus:ring-inset
+                focus:ring-indigo-600 sm:w-80 sm:m-0 sm:leading-6", placeholder:
+                "Patient's name", required: true %>
+              </div>
+            </div>
+            <div class="flex w-max h-max self-end">
+              <%= link_to "Add Medication", "#", class: "flex bg-sky-600 w-max
+              px-3 py-2 rounded-md shadow-sm text-white font-raleway font-medium
+              text-sm hover:bg-sky-500 hover:shadow-md hover:cursor-pointer" %>
             </div>
           </div>
 
-          <!-- Prescription main content -->
-
+          <!-- Prescription main form -->
           <div
-            class="flex flex-row flex-shrink mb-4 border border-slate-300 p-4 rounded-md bg-slate-100 w-full"
+            class="flex flex-row flex-shrink mb-4 border border-slate-300 pt-2 pr-2 p-4 rounded-md bg-slate-100 w-full place-content-between"
           >
-            <div class="pr-2 font-semibold">#1</div>
-            <div class="flex flex-col">
-              <div class="flex flex-row flex-shrink mb-2">
-                <div class="sm:col-span-3">
-                  <%= f.label(:drug_name, "Drug name", class: "block text-sm
-                  font-medium leading-6 text-gray-900") %>
-                  <div class="mr-4">
-                    <%= f.text_field(:drug_name, class: "block rounded-md
-                    border-0 py-1.5 text-gray-900 w-72 shadow-sm ring-1
-                    ring-inset ring-gray-300 placeholder:text-gray-400
-                    focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                    sm:text-sm sm:leading-6", placeholder: "ex. Paracetamol",
-                    required: true) %>
+            <div class="flex flex-row pt-2">
+              <div class="pr-2 font-semibold text-md">1.</div>
+              <div class="flex flex-col">
+                <div class="flex flex-row flex-wrap mb-2 text-xs sm:text-sm">
+                  <div>
+                    <%= f.label(:drug_name, "Drug name", class: "block text-sm
+                    font-medium leading-6 text-gray-900") %>
+                    <div class="mr-4">
+                      <%= f.text_field(:drug_name, class: "flex flex-wrap
+                      rounded-md border-0 py-1.5 text-gray-900 w-56 shadow-sm
+                      ring-1 ring-inset ring-gray-300 placeholder:text-gray-400
+                      focus:ring-2 focus:ring-inset focus:ring-indigo-600
+                      text-xs md:block sm:w-72 sm:leading-6",
+                      placeholder: "ex. Paracetamol", required: true) %>
+                    </div>
+                  </div>
+
+                  <div class="sm:col-span-3">
+                    <%= f.label(:preparation, "Preparation", class: "flex
+                    flex-row text-sm font-medium leading-6 text-gray-900") %>
+                    <div class="mr-4">
+                      <%= f.text_field(:dose_and_preparation, class: "block
+                      rounded-md border-0 py-1.5 text-gray-900 w-48 sm:w-56
+                      shadow-sm ring-1 ring-inset ring-gray-300
+                      placeholder:text-gray-400 focus:ring-2 focus:ring-inset
+                      focus:ring-indigo-600 text-xs sm:leading-6",
+                      placeholder: "ex. 500mg/tablet") %>
+                    </div>
+                  </div>
+
+                  <div>
+                    <%= f.label(:quantity, "Quantity", class: "block text-sm
+                    font-medium leading-6 text-gray-900") %>
+                    <div>
+                      <%= f.text_field(:quantity, class: "block rounded-md
+                      border-0 py-1.5 text-gray-900 w-12 sm:w-16 shadow-sm
+                      ring-1 ring-inset ring-gray-300 placeholder:text-gray-400
+                      focus:ring-2 focus:ring-inset focus:ring-indigo-600
+                      text-xs sm:leading-6", placeholder: "ex. 30",
+                      required: true) %>
+                    </div>
                   </div>
                 </div>
-
-                <div class="sm:col-span-3">
-                  <%= f.label(:preparation, "Preparation", class: "flex flex-row
-                  text-sm font-medium leading-6 text-gray-900") %>
-                  <div class="mr-4">
-                    <%= f.text_field(:dose_and_preparation, class: "block
-                    rounded-md border-0 py-1.5 text-gray-900 w-56 shadow-sm
-                    ring-1 ring-inset ring-gray-300 placeholder:text-gray-400
-                    focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                    sm:text-sm sm:leading-6", placeholder: "ex. 500mg/tablet")
-                    %>
-                  </div>
-                </div>
-
-                <div>
-                  <%= f.label(:quantity, "Quantity", class: "block text-sm
+                <div class="flex flex-col flex-shrink">
+                  <%= f.label(:frequency, "Dose & Frequency", class: "text-sm
                   font-medium leading-6 text-gray-900") %>
                   <div>
-                    <%= f.text_field(:quantity, class: "block rounded-md
-                    border-0 py-1.5 text-gray-900 w-16 shadow-sm ring-1
+                    <%= f.text_field :dose_and_frequency, class: "rounded-md
+                    border-0 py-1.5 text-gray-900 w-3/4 shadow-sm ring-1
                     ring-inset ring-gray-300 placeholder:text-gray-400
-                    focus:ring-2 focus:ring-inset focus:ring-indigo-600
-                    sm:text-sm sm:leading-6", placeholder: "ex. 30", required:
-                    true) %>
+                    focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-xs sm:leading-6", placeholder: "ex. Take 1 tablet
+                    every 4hrs", required: true %>
                   </div>
-                </div>
-              </div>
-              <div>
-                <%= f.label(:frequency, "Dose & Frequency", class: "block
-                text-sm font-medium leading-6 text-gray-900") %>
-                <div>
-                  <%= f.text_field :dose_and_frequency, class: "block rounded-md
-                  border-0 py-1.5 text-gray-900 w-3/4 shadow-sm ring-1
-                  ring-inset ring-gray-300 placeholder:text-gray-400
-                  focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm
-                  sm:leading-6", placeholder: "ex. Take 1 tablet every 4hrs...",
-                  required: true %>
                 </div>
               </div>
             </div>
+            <button
+              class="flex self-start px-1 bg-red-500 text-sm text-white rounded-sm hover:bg-red-400"
+            >
+              x
+            </button>
           </div>
 
           <!-- Additional Patient Instructions/ Notes -->
           <div
-            class="w-auto border border-slate-300 p-4 rounded-md bg-slate-100"
+            class="flex-shrink w-full border border-slate-300 pt-2 p-4 rounded-md bg-slate-100"
           >
             <%= f.label(:notes, "Instructions/ Additional Notes", class: "block
             text-sm font-medium leading-6 text-gray-900") %>
@@ -99,20 +115,19 @@
               <%= f.text_area(:notes, class: "block w-full rounded-md border-0
               py-1.5 text-gray-900 w-72 shadow-sm ring-1 ring-inset
               ring-gray-300 placeholder:text-gray-400 focus:ring-2
-              focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
-              placeholder: "Notes", required: true) %>
+              focus:ring-inset focus:ring-indigo-600 text-xs sm:leading-6", placeholder: "Notes", required: true) %>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="flex flex-row place-content-end">
-      <%= link_to "Cancel", root_path, class: "flex bg-white px-6 py-2
-      text-black font-raleway font-medium text-lg rounded-md mr-4 shadow-sm
+      <%= link_to "Cancel", root_path, class: "flex bg-white px-4 py-1
+      text-black font-raleway font-medium text-md rounded-md mr-4 shadow-sm
       hover:shadow-md" %>
       <div class="m-0">
-        <%= f.submit "Save", class: "flex bg-emerald-600 px-6 py-2 rounded-md
-        shadow-sm text-white font-raleway font-medium text-lg
+        <%= f.submit "Save", class: "flex bg-emerald-600 px-4 py-1 rounded-md
+        shadow-sm text-white font-raleway font-medium text-md
         hover:bg-emerald-500 hover:shadow-md hover:cursor-pointer" %>
       </div>
     </div>

@@ -25,6 +25,7 @@ class PrescriptionsController < ApplicationController
 
   def edit
     @prescription = Prescription.find(params[:id])
+    @patients = Patient.order(:last_name, :first_name)
   end
 
   def update
