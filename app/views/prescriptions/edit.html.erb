@@ -6,11 +6,11 @@
       <!-- Page Header -->
       <div class="pb-4 w-full">
         <div>
-          <h1 class="font-semibold text-2xl font-raleway">New Prescription</h1>
+          <h1 class="font-semibold text-2xl font-raleway">Edit Prescription</h1>
         </div>
 
-        <!-- New Prescription Form -->
-        <%= form_with model: Prescription.new, method: :post do |f| %>
+        <!-- Edit Prescription Form -->
+        <%= form_with model: @prescription do |f| %>
         <div class="flex flex-col mt-6 w-full">
           <!-- Patient's name -->
           <div class="pb-6">
@@ -52,9 +52,9 @@
                   <%= f.label(:preparation, "Preparation", class: "flex flex-row
                   text-sm font-medium leading-6 text-gray-900") %>
                   <div class="mr-4">
-                    <%= f.text_field(:dose_and_preparation, class: "block
-                    rounded-md border-0 py-1.5 text-gray-900 w-56 shadow-sm
-                    ring-1 ring-inset ring-gray-300 placeholder:text-gray-400
+                    <%= f.text_field(:preparation, class: "block rounded-md
+                    border-0 py-1.5 text-gray-900 w-56 shadow-sm ring-1
+                    ring-inset ring-gray-300 placeholder:text-gray-400
                     focus:ring-2 focus:ring-inset focus:ring-indigo-600
                     sm:text-sm sm:leading-6", placeholder: "ex. 500mg/tablet")
                     %>
@@ -75,8 +75,8 @@
                 </div>
               </div>
               <div>
-                <%= f.label(:frequency, "Dose & Frequency", class: "block
-                text-sm font-medium leading-6 text-gray-900") %>
+                <%= f.label(:dose_and_frequency, "Dose & Frequency", class:
+                "block text-sm font-medium leading-6 text-gray-900") %>
                 <div>
                   <%= f.text_field :dose_and_frequency, class: "block rounded-md
                   border-0 py-1.5 text-gray-900 w-3/4 shadow-sm ring-1

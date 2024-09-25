@@ -1,0 +1,54 @@
+<body class="bg-emerald-50">
+  <div
+    class="flex justify-self-center bg-white w-full h-100 my-4 py-4 px-8 rounded-lg shadow-sm shadow-lg border-t-4 border-emerald-600 font-raleway"
+  >
+    <div class="w-full overflow-x-auto">
+      <!-- Header -->
+      <div>
+        <h1 class="font-semibold text-2xl">My Prescriptions</h1>
+        <div class="flex justify-between">
+          <p class="mt-1 text-sm leading-6 text-gray-600">
+            List of all issued prescriptions.
+          </p>
+        </div>
+      </div>
+      <br />
+      <!-- Patient's Table -->
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+          <tr>
+            <th scope="col" class="p-3">Date Issued</th>
+            <th scope="col" class="p-3">Patient's Name</th>
+            <th scope="col" class="p-3">Email Address</th>
+            <th scope="col" class="p-3">Last Updated</th>
+            <th scope="col" class="p-3">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @prescriptions.each do |prescription| %>
+          <tr class="white border-b hover:bg-gray-50">
+            <td class="p-3"><%= prescription.date_created %></td>
+            <th class="p-3 font-medium text-gray-900 whitespace-nowrap">
+              <%= link_to "#{prescription.patient.full_name}",
+              edit_patient_path(prescription.patient), class: "hover:underline
+              underline-offset-2 underline-gray-900", data: { turbo: false } %>
+            </th>
+            <td class="p-3"><%= prescription.patient.email %></td>
+            <td class="p-3"><%= prescription.date_updated %></td>
+            <td class="block p-3">
+              <%= link_to "Edit", edit_prescription_path(prescription), class:
+              "text-md text-green-700 font-bold hover:underline
+              underline-offset-2 underline-green-700", data: { turbo: false } %>
+              <%= link_to("Delete", prescription_path(prescription), class:
+              "text-md ml-4 text-red-400 font-bold hover:underline
+              underline-offset-2 underline-red-400", method: :delete, data: {
+              turbo_method: :delete, turbo_confirm: "Are you sure?"}) %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
