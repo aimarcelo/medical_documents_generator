@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,33 +12,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_13_091138) do
+ActiveRecord::Schema[7.1].define(version: 20_240_913_091_138) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "patients", force: :cascade do |t|
-    t.string "first_name"
-    t.string "middle_name"
-    t.string "last_name"
-    t.string "city"
-    t.string "province"
-    t.string "email"
-    t.string "contact_number"
-    t.datetime "birthdate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'patients', force: :cascade do |t|
+    t.string 'first_name'
+    t.string 'middle_name'
+    t.string 'last_name'
+    t.string 'city'
+    t.string 'province'
+    t.string 'email'
+    t.string 'contact_number'
+    t.datetime 'birthdate'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "prescriptions", force: :cascade do |t|
-    t.text "drug_name"
-    t.text "preparation"
-    t.text "dose_and_frequency"
-    t.text "quantity"
-    t.text "notes"
-    t.bigint "patient_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_prescriptions_on_patient_id"
+  create_table 'prescriptions', force: :cascade do |t|
+    t.text 'drug_name'
+    t.text 'preparation'
+    t.text 'dose_and_frequency'
+    t.text 'quantity'
+    t.text 'notes'
+    t.bigint 'patient_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['patient_id'], name: 'index_prescriptions_on_patient_id'
   end
-
 end
