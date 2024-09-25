@@ -1,41 +1,45 @@
 <!-- component -->
 <header
-  class="header fixed bg-white shadow-sm px-8 py-02 text-black w-full z-50"
+  class="header fixed bg-white shadow-sm px-4 sm:px-8 text-black w-full z-50"
 >
-  <div class="flex max-w-[75rem] mx-auto px-7 items-center justify-between">
+  <div
+    class="flex max-w-[75rem] mx-auto px-4 sm:px-7 items-center justify-between"
+  >
     <!-- logo -->
     <h1
-      class="w-3/12 font-medium text-3xl font-robotoSlab hover:text-purple-700 duration-200 cursor-pointer active"
+      class="w-3/12 font-medium text-xl sm:text-3xl font-robotoSlab hover:text-purple-700 duration-200 cursor-pointer active"
     >
       <%= link_to "medley", root_path %>
     </h1>
 
     <!-- navigation -->
-    <nav class="nav font-normal text-lg">
-      <ul class="flex items-center font-raleway text-white-200 text-lg">
+    <nav class="nav font-normal">
+      <ul
+        class="mx-2 flex items-center font-raleway text-white-200 text-xs sm:text-lg"
+      >
         <li
-          class="p-4 border-b-2 border-purple-700 border-opacity-0 hover:border-opacity-100 hover:text-purple-700 duration-200 cursor-pointer active"
+          class="sm:ml-0 p-3 pb-2 border-b-2 border-purple-700 border-opacity-0 hover:border-opacity-100 hover:text-purple-700 duration-200 cursor-pointer active"
         >
           <%= link_to "Home", root_path %>
         </li>
         <li
-          class="p-4 border-b-2 border-purple-700 border-opacity-0 hover:border-opacity-100 hover:text-purple-700 duration-200 cursor-pointer active"
+          class="p-3 border-b-2 pb-2 border-purple-700 border-opacity-0 hover:border-opacity-100 hover:text-purple-700 duration-200 cursor-pointer active"
         >
-          <%= link_to "My Prescriptions", prescriptions_path %>
+          <%= link_to "Prescriptions", prescriptions_path %>
         </li>
         <li
-          class="p-4 border-b-2 border-purple-700 border-opacity-0 hover:border-opacity-100 hover:text-purple-700 duration-200 cursor-pointer active"
+          class="p-3 border-b-2 pb-2 border-purple-700 border-opacity-0 hover:border-opacity-100 hover:text-purple-700 duration-200 cursor-pointer active"
         >
-          <%= link_to "My Certificates" %>
+          <%= link_to "Certificates" %>
         </li>
       </ul>
     </nav>
 
     <!-- buttons --->
-    <div class="w-3/12 flex justify-end">
+    <div class="w-3/12 flex flex-shrink justify-end items-center">
       <a href="">
         <svg
-          class="h-8 p-1 hover:text-purple-700 duration-200"
+          class="h-6 sm:h-8 p-1 hover:text-purple-700 duration-200"
           aria-hidden="true"
           focusable="false"
           data-prefix="far"
